@@ -1,0 +1,47 @@
+2021-07-09 21:35:01,474 : INFO : selenium.test_logging : A info level logs are logged 
+2021-07-09 21:35:01,474 : WARNING : selenium.test_logging : A warning level logs are logged
+2021-07-09 21:35:01,474 : ERROR : selenium.test_logging : A error level logs are logged, 
+2021-07-09 21:35:01,474 : CRITICAL : selenium.test_logging : critical error
+2021-07-09 21:35:31,138 : INFO : selenium.test_logging : A info level logs are logged 
+2021-07-09 21:35:31,138 : WARNING : selenium.test_logging : A warning level logs are logged
+2021-07-09 21:35:31,138 : ERROR : selenium.test_logging : A error level logs are logged, 
+2021-07-09 21:35:31,138 : CRITICAL : selenium.test_logging : critical error
+2021-07-09 21:52:43,110 : DEBUG : selenium.test_logging : A debug level logs are logged
+2021-07-09 21:52:43,111 : INFO : selenium.test_logging : A info level logs are logged 
+2021-07-09 21:52:43,111 : WARNING : selenium.test_logging : A warning level logs are logged
+2021-07-09 21:52:43,111 : ERROR : selenium.test_logging : A error level logs are logged, 
+2021-07-09 21:52:43,111 : CRITICAL : selenium.test_logging : critical error
+2021-07-09 22:06:48,734 : INFO : selenium.BaseClass : Shashank
+2021-07-09 22:14:34,938 : INFO : test_name : Shashank
+2021-07-09 22:20:17,368 : INFO : test_name : Shashank
+2021-07-09 22:20:17,370 : DEBUG : selenium.test_logging : A debug level logs are logged
+2021-07-09 22:20:17,370 : INFO : selenium.test_logging : A info level logs are logged 
+2021-07-09 22:20:17,371 : WARNING : selenium.test_logging : A warning level logs are logged
+2021-07-09 22:20:17,371 : ERROR : selenium.test_logging : A error level logs are logged, 
+2021-07-09 22:20:17,371 : CRITICAL : selenium.test_logging : critical error
+2021-07-09 22:20:30,872 : INFO : test_name : Shashank
+2021-07-09 22:20:30,875 : DEBUG : selenium.test_logging : A debug level logs are logged
+2021-07-09 22:20:30,875 : INFO : selenium.test_logging : A info level logs are logged 
+2021-07-09 22:20:30,875 : WARNING : selenium.test_logging : A warning level logs are logged
+2021-07-09 22:20:30,875 : ERROR : selenium.test_logging : A error level logs are logged, 
+2021-07-09 22:20:30,875 : CRITICAL : selenium.test_logging : critical error
+2021-07-09 22:28:54,389 : INFO : test_name : Shashank
+2021-07-09 22:28:54,391 : DEBUG : selenium.test_logging : A debug level logs are logged
+2021-07-09 22:28:54,391 : INFO : selenium.test_logging : A info level logs are logged 
+2021-07-09 22:28:54,391 : WARNING : selenium.test_logging : A warning level logs are logged
+2021-07-09 22:28:54,391 : ERROR : selenium.test_logging : A error level logs are logged, 
+2021-07-09 22:28:54,391 : CRITICAL : selenium.test_logging : critical error
+2021-07-09 22:43:03,054 : INFO : test_name : Shashank
+2021-07-09 22:43:03,057 : DEBUG : selenium.test_logging : A debug level logs are logged
+2021-07-09 22:43:03,057 : INFO : selenium.test_logging : A info level logs are logged 
+2021-07-09 22:43:03,057 : WARNING : selenium.test_logging : A warning level logs are logged
+2021-07-09 22:43:03,057 : ERROR : selenium.test_logging : A error level logs are logged, 
+2021-07-09 22:43:03,057 : CRITICAL : selenium.test_logging : critical error
+2021-07-09 22:44:05,576 : INFO : test_name : Shashank
+2021-07-09 22:45:04,368 : INFO : test_name : Shashank
+2021-07-09 22:45:39,749 : INFO : test_name : Shashank
+2021-07-09 22:45:39,751 : DEBUG : selenium.test_logging : A debug level logs are logged
+2021-07-09 22:45:39,751 : INFO : selenium.test_logging : A info level logs are logged 
+2021-07-09 22:45:39,751 : WARNING : selenium.test_logging : A warning level logs are logged
+2021-07-09 22:45:39,751 : ERROR : selenium.test_logging : A error level logs are logged, 
+2021-07-09 22:45:39,751 : CRITICAL : selenium.test_logging : critical error
