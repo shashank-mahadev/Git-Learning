@@ -1,0 +1,56 @@
+
+
+
+Foundation for VR, Autonomus Driving, IOT
+
+1. Millimeter waves
+2. Small cell
+3. Massive MIMO
+4. Beam forming
+5. Full Duplex
+
+
+
+1. Millimeter waves :
+Currently we are operating between 3GHz - 6GHz frequency, Idea is to increase the bandwidth to 30 GHz to 300 Ghz.
+but there is complication in doing so, this dont travel very far and  the waves dont get around the obstacles(trees, building, clouds, rain) very well.
+to address this we use 2nd tech
+
+
+2. Small Cell :
+Its like a mini base stations, acts as relays to get the signals around obstacles. As you find obstacles you will be
+routed to other relay tat has clear view
+
+3. Massive MIMO (Multi I/O Multi O/P :
+today's 4G stations has about 12 (dozen) ports to handle internet traffic. Massive MIMO can support upto 100 ports to
+handle traffic, of course this will have downside of network interference
+
+4. Beam forming :
+Traffic signalling system, sends data to specific user and avoids interfearence
+
+5. Full Duplex
+Todays services handles mostly 1 service at a time (receive / transmit) called resiprosity , so till now they use to put
+the data trains either in different frequencies,  the now the solution is that they have found silicon transistors tat
+acts as signalling system tat route trains tat pass each other without interferance
+
+
+5G service verticals
+- Enhanced mobile Broadband (eMBB) --> concentrates more on bandwidth (20GBPS) atleast 100 MBPS per customer
+- Massive Machine type communication (mMTC) --> 10^6 subs per sqkm
+- Ultra reliable and low latency communication (uRLLC) ---> Highly reliable, low latency (1ms)
+
+
+Network slicing 5G :
+Even with the Huge Speeds of the internet, its difficult to provide same amount of speed for every end user. Even if we
+provide they may not use it and the bandwidth will be wasted. So in order streamline the usage needs and provide
+effecient services we use network slicing.
+
+
+
+
+
+
+
+
+
+

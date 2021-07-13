@@ -1,0 +1,92 @@
+Kubernetes:
+This is a containers orchestration tool - It deploys and manages the containers in k8s clusters.
+K8S offers features such as -
+1. High Availability
+2. Scalable
+3. Disaster recovery
+
+Architecture:
+
+Master  -- where k8s is installed and it contains following components
+a] API server ---> UI(dashboard), API(control using api), CLI(command line controls) are served from API server. All the
+requests to start pods, manage cluster are done through api server
+b] Controller manager ---> tracks cluster activites (ex: RM), when nodes fails this will try to recover
+c] Scheduler ---> schedules pods/ containers on different nodes, once requests are sent to api server it sends to the
+scheduler to assign the pods. scheduler decides which node the pods needs to be started.
+d] etcd ---> Key value storage, holds the current state of the cluster. holds snapshots helps in backup and restore.
+this holds meta data of all the cluster activites
+
+Network--
+
+Workers -- where the pods, containers and processing is done, it contains..
+a] kubelet ---> this is the services / agent running in all the workers. This will communicate with each nodes and
+b] this is where dockers are installed.
+c] Kube proxy is installed tat manages the app requests to the DB in same worker rather then DB  in different worker
+d] Container runtime, is to be installed for dockers
+
+Basic Concepts:
+Pod : Smallest unit that a user can configure and interact with. each worker can have multiple pods
+containers:
+virtual network: assigns new IP address for each pod. when the pod dies a new pod is created automatically and a new IP
+is assigned.
+service: Since the IP changes when the pod dies, there are services. so these services will act as load balancer and has
+permanent IP address. lif cycle of service and pods are not connected, even if pod dies services will stay
+
+There are 2 types of services, which will be defined by the users at the time of creation of pods
+a] External services- This kind of services will talk to the public for ex: any apps
+b] Internal services- This kind of services will only talk internally, for Ex: Database
+
+Ingress: Route traffic in to cluster - If we want any apps to be publicly used, its not user friendly to have IP hence we use ingress to have a domain
+ name set, and then it will forward to any service
+
+ConfigMap and Secret - ConfigMap is API object used to store non-confidential data in key-value pairs. Pods can consume
+ConfigMaps as environment variables, command-line arguments, or as configuration files in a volume.
+Kubernetes Secrets let you store and manage sensitive information, such as passwords, OAuth tokens, and ssh keys.
+base 64 encoded
+
+Volumes: In order to preserve the data you can attach volumes that can be local or remote(which is not part of k8s
+cluster
+
+StateFulSet : This is a mechanism that is used to maintain replication of databases in k8s. this monitor read and write
+in DBs to make sure there are no inconsistancies
+
+
+
+Kubernetes configuration:
+a] All the configuration of k8s will go to the master node through the process called API server
+b] the configuration can be set through UI, API and CLI. all of these will talk to API server
+c] API server is the only entry point in to cluster
+d] All the requests will be either in the JSON or YAML formats
+e] the configuration will be sent to API server through a component called "Deployment"
+f] Deployment is nothing but a template/blueprint to create a pods
+g] As soon we set the configuration, configuration manager will check the cluster state and if anything is missing it
+will start any components thats missing. if user wants 2 replicas for HA, just mention replica as 2 in deployments and
+k8s will start them
+
+Minikube:
+A local setup tat is run on a virtual box/hypervisor. This contains (master + workers + docker) pre-installed
+used for testing
+# minikube status
+
+
+Kubectl:
+CLI to interact with API server to work with k8s clusters
+
+# kubectl version ---> shows client and server versions
+# kubectl get nodes --> shows nodes details
+
+CRUD commands
+# kubectl create deployment [name]
+# kubectl edit deployment [name]
+# kubectl delete deployment [name]
+
+Status of k8s components
+# kubectl get nodes | pods | services | replicaset | deployment
+
+Debugging
+# kubectl logs [pod name]                   ------> log to console
+# kubectl exec -it [pod name] -- bin/bash   ------> get interactive terminal
+
+
+
+

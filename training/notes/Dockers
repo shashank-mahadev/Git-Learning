@@ -1,0 +1,96 @@
+docker ps - list active containers
+docker ps -a - list all containers
+docker start container_id - To start container
+docker stop container_id - To stop container
+docker info - To view system-wide information
+
+docker - To view all available subcommands, type
+
+
+
+docker ps -a
+CONTAINER ID   IMAGE                      COMMAND                  CREATED         STATUS                     PORTS     NAMES
+30aea09a657b   hello-world                "/hello"                 6 weeks ago     Exited (0) 6 weeks ago               pedantic_mirzakhani
+f1bfd82b8ed3   hello-world                "/hello"                 6 weeks ago     Exited (0) 6 weeks ago               infallible_faraday
+91080a2fdce8   hello-world                "/hello"                 7 weeks ago     Exited (0) 7 weeks ago               boring_rosalind
+a52c91949652   hello-world                "/hello"                 7 weeks ago     Exited (0) 7 weeks ago               sleepy_turing
+4c305efdb977   hello-world                "/hello"                 7 weeks ago     Exited (0) 7 weeks ago               magical_stonebraker
+8d44f8ffc7eb   hello-world                "/hello"                 7 weeks ago     Exited (0) 7 weeks ago               sweet_ganguly
+c6fd9b04c659   hello-world                "/hello"                 7 weeks ago     Exited (0) 7 weeks ago               dazzling_williamson
+36989ceb83af   hello-world                "/hello"                 7 weeks ago     Exited (0) 7 weeks ago               trusting_bose
+999c144621c2   hello-world                "/hello"                 7 weeks ago     Exited (0) 7 weeks ago               angry_wozniak
+
+docker info - To view system-wide information
+# docker info
+Client:
+ Context:    default
+ Debug Mode: false
+ Plugins:
+  app: Docker App (Docker Inc., v0.9.1-beta3)
+  buildx: Build with BuildKit (Docker Inc., v0.5.1-docker)
+
+Server:
+ Containers: 68
+  Running: 1
+  Paused: 0
+  Stopped: 67
+ Images: 9
+ Server Version: 20.10.3
+ Storage Driver: overlay2
+  Backing Filesystem: extfs
+  Supports d_type: true
+  Native Overlay Diff: true
+ Logging Driver: json-file
+ Cgroup Driver: cgroupfs
+ Cgroup Version: 1
+ Plugins:
+  Volume: local
+  Network: bridge host ipvlan macvlan null overlay
+  Log: awslogs fluentd gcplogs gelf journald json-file local logentries splunk syslog
+ Swarm: inactive
+ Runtimes: io.containerd.runtime.v1.linux runc io.containerd.runc.v2
+ Default Runtime: runc
+ Init Binary: docker-init
+ containerd version: 269548fa27e0089a8b8278fc4fc781d7f65a939b
+ runc version: ff819c7e9184c13b7c2607fe6c30ae19403a7aff
+ init version: de40ad0
+ Security Options:
+  seccomp
+   Profile: default
+ Kernel Version: 3.10.0-957.27.2.el7.x86_64
+ Operating System: CentOS Linux 7 (Core)
+ OSType: linux
+ Architecture: x86_64
+ CPUs: 8
+ Total Memory: 58.59GiB
+ Name: tnode119.unraveldata.com
+ ID: 6WEK:2GJX:3A3V:X2N5:BXYH:P2AF:RXBU:24IM:TMIN:OUG7:4J3O:JKB2
+ Docker Root Dir: /var/lib/docker
+ Debug Mode: false
+ Registry: https://index.docker.io/v1/
+ Labels:
+ Experimental: false
+ Insecure Registries:
+  127.0.0.0/8
+ Live Restore Enabled: false
+
+WARNING: bridge-nf-call-iptables is disabled
+WARNING: bridge-nf-call-ip6tables is disabled
+You have mail in /var/spool/mail/root
+
+Step 3 — Configure MYSQL
+Command Syntax: docker run --name some-mysql -v /my/custom:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:tag
+
+
+docker run --detach --name=test-mysql -v /home/topcat/mysql:/etc/mysql/conf.d -v /srv/data/db1_data:/var/lib/mysql --env="MYSQL_ROOT_PASSWORD=$(MYPASSWORD)" --publish $(MYPORT):3306 mysql:tag
+
+Details of each arg:
+
+        /home/topcat/mysql - is the Docker-mysql install path,
+        /srv/data/db1_data - mysql data dir
+        /var/lib/mysql - Path to mount point inside the container
+        /home/topcat/mysql - Path to the custom my.cnf file, which will be mounted in docker at /etc/mysql/conf.d
+        test-mysql - Name of the container.
+        MYPASSWORD - Password of MYSQL_ROOT user
+        tag - Mysql version
+        MYPORT - Port details

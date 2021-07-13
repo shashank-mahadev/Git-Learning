@@ -1,0 +1,91 @@
+AWS:
+
+1. Virtualization types - HVM and paravirtualized
+HVM(Hardware Virtual machine) - mimics OS on bare metal,
+PV - is the lighter form of the virtualization, these type require modification in order to transfer the drivers to the OS level
+
+
+2. Root device types: EBS and Instance storage.
+EBS - connected by the network, this is remotely stored and are persistent, also scalable
+Instance storage - Block based storage that comes with the system and are non-persistent, these are faster.
+
+3. Instance types :
+General Purpose- The most popular; used for web servers, development environments, etc.
+Compute Optimized- Good for compute-intensive applications such as some scientific modeling or high-performance web servers.
+Memory Optimized- Used for anything that needs memory-intensive applications, such as real-time big data analytics, or running Hadoop or Spark.
+Accelerated Computing- Include additional hardware (GPUs, FPGAs) to provide massive amounts of parallel processing for tasks such as graphics processing.
+Storage Optimized- Ideal for tasks that require huge amounts of storage, specifically with sequential read-writes, such as log processing.
+
+4. IAM :
+access management syatem accross  AWS services, can be integrated with windows AD
+there are 4 key concepts - Users, Group, Roles, Policies - allow/ deny the permision for resources
+USE LEAST PRIVILEGE MODEL
+
+
+AWS storage services:
+# EBS
+# S3 glasier - We can Archive data, Cheap data, High latency, Huge data,
+# Elastic File system - EFS (sharable)
+# Storage Gateway -
+# snowball -
+
+
+
+5. S3 : simple storage system
+Durable 99.999%, use checksum. can store anyware and anything. cost effecient, scalable. frequent access unlike glacier
+Buckets and objects
+versioning - same name files different versions
+CRR- cross region replication
+storage class -- standard, glacier, etc
+
+
+It has a REST interface and uses secure HMAC-SHA1 authentication keys
+secure aws data using , AES-256 Encryption and AWS-KMS (topcat)
+# aws s3 ls
+# aws s3 mb
+# aws s3 rm
+# aws s3 mv
+# aws s3 cp
+
+
+
+Volume types:
+root Volume -- General purpose SSD, Provisioned IOPS SSD ( Used for IOPS intensive workloads), magnetic
+EBS volume -- General purpose SSD, Provisioned IOPS SSD, throughput optimized, cold HDD (when tread is less and write operation is high)
+
+Difference between IOPS and throughput :
+Throughput is rate of data transfer, like internet speed.
+IOPS is the rate to perform I/O operation, like actually write the data on the disk
+
+
+AWS Hypervisors:
+1. Nitro -- KVM  -- from C5 - better security
+2. XEN -- PV --
+
+Amazon Route 53:
+Domain Name System (DNS) - translates names to IP. It routes users to internet apps. this can be integrates different AWS services.
+this can also be used with non AWS resources. Failover mechanism to route to different location end point, 100 % availability
+scalable, reliable, secure, geo-location routing (customize content), geo-proximity (routing based on users and their location, bias)
+latency based routing- redicrect to resource with less latency
+multivalue answer routing- fetch requests on distributed systems
+weighted routing - load balancing
+Health checks -
+we can access Route 53 -- console, API, SDK, CLI
+
+
+integrated with IAM
+
+
+
+
+
+AMI : Azure Machine Images
+
+
+Cloud front : Geo Targeting -- customization based on regions
+
+Snowball - application that enables you to transfer terabytes of data inside and outside of the AWS environment
+Key-Pairs in AWS - Key-Pairs are secure login information for your Virtual Machines. To connect to the instances, you can use Key-Pairs which contain a Public Key and a Private Key.
+Subnets - You can have 200 Subnets per VPC.
+
+

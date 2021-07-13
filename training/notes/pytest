@@ -1,0 +1,149 @@
+1. Test data
+2. Report
+3. Utilities
+4. Unit test
+
+
+
+
+
+
+Pytest Features:
+1.  open-sourced
+2.  Fixtures ---> setup and teardown
+3.  skip-tests options --- markers
+4.  built-in support to discover tests ----> "test," or the suffix "_test.py."
+5.  parallelism : add this plugin --> # pip install pytest-xdist > # pytest –n <numberof CPU cycles>
+6.  Automatically detect tests
+7.  markers - can run specific test or run group of tests
+8.  parameterization
+9.  Easy syntax
+10. detailed info on failing "assert" statements
+11. Extensibility- plugins and hooks
+12. Reporting --> pytest --junitxml=path ---> creates xml logs, can be read by jenkins
+
+
+conditions:
+1. all tests files should start with test [ Ex: test_add.py]
+
+
+
+# pip install pytest                      |   installs pytest
+# pytest -h                               |   Shows all the methods in the pytest [ -h, help file]
+# pytest test_example.py -v               |   runs that particular test file and returns the result
+# py.test -v                              |   runs all the test files that starts with prefix "test" [test_all.py, test_mul.py]
+# pytest test_exam.py::test_add           |    runs only particular function, 'test_add' function in 'test_exam.py'
+# pytest test_exam.py -v -k 'add'         |   runs the functions form test file, that contain the keyword 'add' in it [ ex: add_num(), add_string()]
+# pytest test_exam.py -v -k 'add or sub'  |   runs the functions form test file, that contain the keyword 'add' and 'sub' in it [ ex: sub_num(), add_string()]
+                                              so whatever expressions are given will be executed
+# pytest -v -m <marker_name>              |   runs the functions with that marks
+# pytest -v -x                            |   exits the tests as soon the first failure occur
+# pytest -v -x --tb=no                    |   skips the stacktrace
+# pytest --maxfail=4                      |   exits if 4 failures occur
+# pytest -v -s                            |   to execute specific file with verbose
+# pytest -v --capture=no                  |   to execute print statements
+# pytest -v -q                            |   Quite mode
+# pytest -rA                              |   will all the apps
+
+
+
+
+Adding markers to the tests:
+1. for each function markers can be added
+2. same markers or different markers can be added for same function
+3. we can add marker to skip the tests, we can add the reason for skip as well
+4. we can use skipif condition in marker
+
+markers to run test:
+# @pytest.mark.<marker_name>
+# @pytest.mark.addition
+
+markers to skip test:
+# @pytest.mark.skip
+# @pytest.mark.skip(reason='dont run this test as i dont like it')
+# @pytest.mark.skipif(sys.version_info < (3,3), reason:'python version is older')
+
+========================================================================================================================
+markers to parameterize:
+# @pytest.mark.parameterize('x, y, result', [(2, 3, 5), ('hello, 'hello', 'hellohello')] )
+
+Example:
+import pytest
+
+@pytest.mark.parameterize('x, y, result', [(3, 1, 5), ('hello', 'hello', 'hellohello')]
+
+def addition(x, y):
+    return x+y
+
+def test_addition(x, y, result)
+    assert addition(x, y) == result
+
+========================================================================================================================
+
+Setup and teardown: this means that setup modules will start initially and then runs all the tests and then teardown
+does cleanup/stop some programs and will execute always at the start.
+setup_module     -----> will be called automatically at the start
+teardown_module  -----> will be called automatically at the end
+
+Example: in this example we are creating the db connection, that will initialize the connection and sty tat way until
+tests are executed and teardown closes the connection. now this will save resources as there are no multiple instances
+of db connection running for each tests.
+
+db = None
+def setup_module(module):
+    global db
+    db = student_db()
+    db.connect = ('json.data')
+
+def teardown_module(module):
+    db = db.close()
+
+========================================================================================================================
+Fixture: Instead of calling the setup and teardown method pytest will allow to do it using fixtures. We need to add
+"@pytest.fixture"
+
+Ex:
+def db():
+    db = syudent_db
+    db.connect(json_data)
+    return db
+
+def test_id(db):
+    id_data = db.get('students')
+    assert students["id"] == 32
+
+def test_age(db):
+    id_data = db.get('students')
+    assert students["age"] == 18
+
+
+but the problem is that by giving this the program runs twice in this above case, wherever "db" is called it will run so
+to avoid this, use "scope" EX: "@pytest.fixture(scope='module')"
+
+@pytest.fixture(scope='module')
+def db():
+    db = syudent_db
+    db.connect(json_data)
+    return db
+
+above example will call setup only once.. to add teardown use "yield" in place of "return" db
+
+@pytest.fixture(scope='module')
+def db():
+    db = syudent_db
+    db.connect(json_data)
+    yield db
+    db.close()
+
+
+
+
+
+
+
+
+
+
+
+
+
